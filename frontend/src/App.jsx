@@ -7,8 +7,9 @@ import Register from './components/Register';
 import Dashboard from './components/Dashboard';
 import SavedTests from './components/SavedTests';
 
-// Set the base URL for all axios requests
-axios.defaults.baseURL = 'http://localhost/drug-interaction-checker/backend';
+// This line now handles both development and production environments automatically.
+axios.defaults.baseURL = import.meta.env.PROD ? '/backend' : 'http://localhost/drug-interaction-checker/backend';
+
 // This allows axios to send cookies (like session IDs) with requests
 axios.defaults.withCredentials = true;
 
